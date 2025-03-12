@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worldnet Hosted Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+            max-width: 600px;
+            max-height: 800px;
+        }
+    </style> 
+</head>
+<body>
+    <iframe src="" name="worldnet-payment" id="worldnet-payment" allowfullscreen>
+        Your browser does not support iframes.
+    </iframe>
+
+    <script>
+        // Dynamically set the URL with the required parameters
+        const params = new URLSearchParams({
+            TERMINALID: '5923003',
+            TERMINALTYPE: '2',
+            HASH: '0f5dcded4ac4224d04baa91b3cb093cf',
+            ORDERID: 'HPP839147180',
+            CURRENCY: 'USD',
+            AMOUNT: '10.17',
+            DESCRIPTION: "Order's description text - The Director's Cut",
+            DATETIME: '11-03-2025:10:09:56:423',
+            AUTOREADY: 'Y',
+            RECEIPTPAGEURL: 'http://simulator.wntps.com:8181/receipt',
+            EMAIL: 'vvd@worldnettps.it',
+            PHONE: '800 0005555',
+            ADDRESS1: '156 Main str.',
+            ADDRESS2: 'Dublin',
+            POSTCODE: '12345',
+            CITY: 'Dublin',
+            REGION: 'Dun Laoghaire',
+            COUNTRY: 'IE',
+            EXTRAFIELD1: 'Extra Field1',
+            INIFRAME: 'Y'
+        });
+
+        // Construct the full URL with parameters
+        const iframe = document.getElementById('worldnet-payment');
+        const baseUrl = "https://testpayments.anywherecommerce.com/merchant/paymentpage";
+        iframe.src = `${baseUrl}?${params.toString()}`;
+    </script>
+</body>
+</html>
